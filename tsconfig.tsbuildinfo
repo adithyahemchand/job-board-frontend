@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/components/header.tsx","./src/components/jobboard.tsx","./src/components/jobcard.tsx","./src/components/jobform.tsx","./src/components/roleselector.tsx","./src/hooks/useauth.ts","./src/hooks/usejobs.ts","./src/types/index.ts"],"version":"5.9.3"}
