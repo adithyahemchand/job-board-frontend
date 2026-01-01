@@ -76,14 +76,26 @@ export default function UserJobsPage() {
   };
 
   return (
-    <JobsPageView
-      title="User Jobs"
-      jobs={jobs}
-      loading={loading}
-      error={error}
-      loadMore={loadMore}
-      onLoadMore={loadMoreJobs}
-      onJobClick={(jobId) => navigate(`/user/jobs/${jobId}`)}
-    />
+    <div className="bg-gray-50 min-h-screen flex justify-center py-6 px-6">
+      <div className="w-full max-w-3xl pl-4">
+        {/* Header */}
+        <div className="text-center mb-4">
+          <h1 className="text-5xl font-extrabold text-blue-600 tracking-tight">
+            Job Board
+          </h1>
+          <p className="text-sm text-gray-500 mt-2">Profile: User</p>
+        </div>
+
+        <JobsPageView
+          title=""
+          jobs={jobs}
+          loading={loading}
+          error={error}
+          loadMore={loadMore}
+          onLoadMore={loadMoreJobs}
+          onJobClick={(jobId) => navigate(`/user/jobs/${jobId}`)}
+        />
+      </div>
+    </div>
   );
 }

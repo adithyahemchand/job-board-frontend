@@ -41,12 +41,25 @@ export default function AdminCreateJobPage() {
   };
 
   return (
-    <div>
-      <h2>Create Job</h2>
+    <div className="bg-gray-50 min-h-screen flex justify-center py-6 px-6">
+      <div className="w-full max-w-3xl pl-4">
+        {/* Header */}
+        <div className="text-center mb-1">
+          <h1 className="text-5xl font-extrabold text-blue-600 tracking-tight">
+            Job Board
+          </h1>
+          <p className="text-sm text-gray-500 mt-2">Profile: Admin</p>
+        </div>
 
-      {error && <p>{error}</p>}
+        {error && <p className="text-red-600 mb-2 text-center">{error}</p>}
 
-      <JobForm loading={loading} onSubmit={handleCreate} />
+        {/* JobForm */}
+        <div className="flex justify-center -mt-1">
+          <div className="w-full max-w-3xl">
+            <JobForm loading={loading} onSubmit={handleCreate} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

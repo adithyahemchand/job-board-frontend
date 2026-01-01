@@ -95,23 +95,37 @@ export default function AdminJobsPage() {
   };
 
   return (
-    <div>
-      <div style={{ marginBottom: "12px" }}>
-        <button onClick={() => navigate("/admin/jobs/create")}>
-          Add New Job
-        </button>
-      </div>
+    <div className="bg-gray-50 min-h-screen flex justify-center py-6 px-6">
+      <div className="w-full max-w-3xl pl-4">
+        {/* Header */}
+        <div className="text-center mb-4">
+          <h1 className="text-5xl font-extrabold text-blue-600 tracking-tight">
+            Job Board
+          </h1>
+          <p className="text-sm text-gray-500 mt-2">Profile: Admin</p>
+        </div>
 
-      <JobsPageView
-        title="Admin Jobs"
-        jobs={jobs}
-        loading={loading}
-        error={error}
-        loadMore={loadMore}
-        onLoadMore={loadMoreJobs}
-        onJobClick={(jobId) => navigate(`/admin/jobs/${jobId}`)}
-        onDelete={handleDelete} // UI component now optional handles deletion
-      />
+        {/* Action */}
+        <div className="flex justify-end mb-4 pr-6">
+          <button
+            onClick={() => navigate("/admin/jobs/create")}
+            className="px-3 py-1.5 text-sm bg-blue-500/70 text-white rounded-md hover:bg-blue-700/70 transition duration-150"
+          >
+            Add New Job
+          </button>
+        </div>
+
+        <JobsPageView
+          title=""
+          jobs={jobs}
+          loading={loading}
+          error={error}
+          loadMore={loadMore}
+          onLoadMore={loadMoreJobs}
+          onJobClick={(jobId) => navigate(`/admin/jobs/${jobId}`)}
+          onDelete={handleDelete}
+        />
+      </div>
     </div>
   );
 }

@@ -27,20 +27,32 @@ export default function JobsPageView({
   onDelete?: (jobId: string) => void;
 }) {
   return (
-    <div>
-      <h2>{title}</h2>
+    <div className="bg-gray-50 min-h-screen flex justify-center py-8 px-4">
+      <div className="w-full max-w-3xl">
+        {title && (
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">{title}</h2>
+        )}
 
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {!loading && jobs.length === 0 && <p>No jobs found</p>}
+        {loading && <p className="text-gray-500">Loading...</p>}
+        {error && <p className="text-red-500">{error}</p>}
+        {!loading && jobs.length === 0 && (
+          <p className="text-gray-400">No jobs found</p>
+        )}
 
-      <JobList jobs={jobs} onJobClick={onJobClick} onDelete={onDelete} />
+        <JobList jobs={jobs} onJobClick={onJobClick} onDelete={onDelete} />
 
-      {loadMore && !loading && (
-        <button onClick={onLoadMore} disabled={loading}>
-          Load more
-        </button>
-      )}
+        {loadMore && !loading && (
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={onLoadMore}
+              disabled={loading}
+              className="px-3 py-1.5 text-sm bg-blue-500/70 text-white rounded-md hover:bg-blue-700/70 disabled:opacity-50 transition duration-150"
+            >
+              Load more jobs
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
