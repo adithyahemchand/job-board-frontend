@@ -4,6 +4,7 @@ import UserJobsPage from "../pages/UserJobsPage";
 import AdminJobsPage from "../pages/AdminJobsPage";
 import type { Role } from "./App";
 import UserJobDetailsPage from "../pages/UserJobDetailsPage";
+import AdminJobDetailsPage from "../pages/AdminJobDetailsPage";
 
 type Props = {
   role: Role;
@@ -46,6 +47,8 @@ export default function AppRouter({
         <Route path="*" element={<Navigate to="/" />} />
 
         <Route path="/user/jobs/:id" element={<UserJobDetailsPage />} />
+
+        <Route path="/admin/jobs/:id" element={<AdminJobDetailsPage />} />
       </Routes>
     </BrowserRouter>
   );
