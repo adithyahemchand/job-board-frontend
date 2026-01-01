@@ -35,23 +35,35 @@ export default function AppRouter({
             />
           }
         />
+        <Route path="*" element={<Navigate to="/" />} />
+        // User Routes
         <Route
           path="/user/jobs"
           element={role === "user" ? <UserJobsPage /> : <Navigate to="/" />}
         />
-
+        <Route
+          path="/user/jobs/:id"
+          element={
+            role === "user" ? <UserJobDetailsPage /> : <Navigate to="/" />
+          }
+        />
+        // Admin Routes
         <Route
           path="/admin/jobs"
           element={role === "admin" ? <AdminJobsPage /> : <Navigate to="/" />}
         />
-
-        <Route path="*" element={<Navigate to="/" />} />
-
-        <Route path="/user/jobs/:id" element={<UserJobDetailsPage />} />
-
-        <Route path="/admin/jobs/:id" element={<AdminJobDetailsPage />} />
-
-        <Route path="/admin/jobs/create" element={<AdminCreateJobPage />} />
+        <Route
+          path="/admin/jobs/:id"
+          element={
+            role === "admin" ? <AdminJobDetailsPage /> : <Navigate to="/" />
+          }
+        />
+        <Route
+          path="/admin/jobs/create"
+          element={
+            role === "admin" ? <AdminCreateJobPage /> : <Navigate to="/" />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
