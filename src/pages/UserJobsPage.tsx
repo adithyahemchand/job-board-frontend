@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import JobsPageView from "../components/JobsPageView";
+import { useNavigate } from "react-router-dom";
 
 type Job = {
   jobId: string;
@@ -22,6 +23,8 @@ export default function UserJobsPage() {
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadInitialJobs();
@@ -74,6 +77,7 @@ export default function UserJobsPage() {
       error={error}
       loadMore={loadMore}
       onLoadMore={loadMoreJobs}
+      onJobClick={(jobId) => navigate(`/user/jobs/${jobId}`)}
     />
   );
 }

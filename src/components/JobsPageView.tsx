@@ -14,6 +14,7 @@ export default function JobsPageView({
   error,
   loadMore,
   onLoadMore,
+  onJobClick,
   onDelete,
 }: {
   title: string;
@@ -22,6 +23,7 @@ export default function JobsPageView({
   error: string | null;
   loadMore: boolean;
   onLoadMore: () => void;
+  onJobClick?: (jobId: string) => void;
   onDelete?: (jobId: string) => void;
 }) {
   return (
@@ -32,7 +34,7 @@ export default function JobsPageView({
       {error && <p>{error}</p>}
       {!loading && jobs.length === 0 && <p>No jobs found</p>}
 
-      <JobList jobs={jobs} onDelete={onDelete} />
+      <JobList jobs={jobs} onJobClick={onJobClick} onDelete={onDelete} />
 
       {loadMore && !loading && <button onClick={onLoadMore}>Load more</button>}
     </div>
