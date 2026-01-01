@@ -42,7 +42,7 @@ export default function UserJobsPage() {
       setCursor(data.lastCursor);
       setLoadMore(data.loadMore);
     } catch {
-      setError("Failed to load jobs");
+      setError("Network error or server unreachable");
     } finally {
       setLoading(false);
     }
@@ -69,7 +69,7 @@ export default function UserJobsPage() {
       setCursor(data.lastCursor);
       setLoadMore(data.loadMore);
     } catch {
-      setError("Failed to load more jobs");
+      setError("Network error or server unreachable");
     } finally {
       setLoading(false);
     }

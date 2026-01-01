@@ -41,7 +41,7 @@ export default function AdminJobsPage() {
       setCursor(data.lastCursor);
       setLoadMore(data.loadMore);
     } catch {
-      setError("Failed to load jobs");
+      setError("Network error or server unreachable");
     } finally {
       setLoading(false);
     }
@@ -68,7 +68,7 @@ export default function AdminJobsPage() {
       setCursor(data.lastCursor);
       setLoadMore(data.loadMore);
     } catch {
-      setError("Failed to load more jobs");
+      setError("Network error or server unreachable");
     } finally {
       setLoading(false);
     }
@@ -90,7 +90,7 @@ export default function AdminJobsPage() {
         alert(data.message || "Failed to delete job");
       }
     } catch {
-      alert("Network error");
+      alert("Network error or server unreachable");
     }
   };
 

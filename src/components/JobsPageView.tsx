@@ -36,7 +36,9 @@ export default function JobsPageView({
         {loading && <p className="text-gray-500">Loading...</p>}
         {error && <p className="text-red-500">{error}</p>}
         {!loading && jobs.length === 0 && (
-          <p className="text-gray-400">No jobs found</p>
+          <div className="flex items-center justify-center min-h-[200px]">
+            <p className="text-gray-400 text-base text-center">No jobs found</p>
+          </div>
         )}
 
         <JobList jobs={jobs} onJobClick={onJobClick} onDelete={onDelete} />
