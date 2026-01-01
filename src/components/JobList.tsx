@@ -7,11 +7,17 @@ type Job = {
   postedDate: string;
 };
 
-export default function JobList({ jobs }: { jobs: Job[] }) {
+export default function JobList({
+  jobs,
+  onDelete,
+}: {
+  jobs: Job[];
+  onDelete?: (jobId: string) => void;
+}) {
   return (
     <div>
       {jobs.map((job) => (
-        <JobCard key={job.jobId} job={job} />
+        <JobCard key={job.jobId} job={job} onDelete={onDelete} />
       ))}
     </div>
   );

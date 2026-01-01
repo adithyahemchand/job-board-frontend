@@ -16,7 +16,7 @@ export default function AppRouter({
   onClearRole,
 }: {
   role: Role;
-  onSelectRole: (role: "USER" | "ADMIN") => void;
+  onSelectRole: (role: "user" | "admin") => void;
   onClearRole: () => void;
 }) {
   return (
@@ -34,12 +34,12 @@ export default function AppRouter({
         />
         <Route
           path="/user/jobs"
-          element={role === "USER" ? <UserJobsPage /> : <Navigate to="/" />}
+          element={role === "user" ? <UserJobsPage /> : <Navigate to="/" />}
         />
 
         <Route
           path="/admin/jobs"
-          element={role === "ADMIN" ? <AdminJobsPage /> : <Navigate to="/" />}
+          element={role === "admin" ? <AdminJobsPage /> : <Navigate to="/" />}
         />
 
         <Route path="*" element={<Navigate to="/" />} />

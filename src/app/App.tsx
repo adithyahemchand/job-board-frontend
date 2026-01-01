@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import AppRouter from "./Router";
 
-export type Role = "USER" | "ADMIN" | null;
+export type Role = "user" | "admin" | null;
 
 function App() {
   const [role, setRole] = useState<Role>(null);
 
   // read role from cookie on first load
   useEffect(() => {
-    const match = document.cookie.match(/role=(USER|ADMIN)/);
+    const match = document.cookie.match(/role=(user|admin)/);
     if (match) {
       setRole(match[1] as Role);
     }
   }, []);
 
-  const selectRole = (selectedRole: "USER" | "ADMIN") => {
+  const selectRole = (selectedRole: "user" | "admin") => {
     document.cookie = `role=${selectedRole}; path=/`;
     setRole(selectedRole);
   };

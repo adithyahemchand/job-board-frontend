@@ -7,14 +7,14 @@ function RoleSelectPage({
   onClearRole,
 }: {
   role: Role;
-  onSelectRole: (role: "USER" | "ADMIN") => void;
+  onSelectRole: (role: "user" | "admin") => void;
   onClearRole: () => void;
 }) {
   const navigate = useNavigate();
 
-  const handleSelect = (r: "USER" | "ADMIN") => {
+  const handleSelect = (r: "user" | "admin") => {
     onSelectRole(r);
-    navigate(r === "USER" ? "/user/jobs" : "/admin/jobs");
+    navigate(r === "user" ? "/user/jobs" : "/admin/jobs");
   };
 
   return (
@@ -22,8 +22,8 @@ function RoleSelectPage({
       <h2>Select Role</h2>
       {!role && (
         <>
-          <button onClick={() => handleSelect("USER")}>User</button>
-          <button onClick={() => handleSelect("ADMIN")}>Admin</button>
+          <button onClick={() => handleSelect("user")}>User</button>
+          <button onClick={() => handleSelect("admin")}>Admin</button>
         </>
       )}
 
