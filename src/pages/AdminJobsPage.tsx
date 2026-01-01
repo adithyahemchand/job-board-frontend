@@ -89,15 +89,23 @@ export default function AdminJobsPage() {
   };
 
   return (
-    <JobsPageView
-      title="Admin Jobs"
-      jobs={jobs}
-      loading={loading}
-      error={error}
-      loadMore={loadMore}
-      onLoadMore={loadMoreJobs}
-      onJobClick={(jobId) => navigate(`/admin/jobs/${jobId}`)}
-      onDelete={handleDelete} // UI component now optional handles deletion
-    />
+    <div>
+      <div style={{ marginBottom: "12px" }}>
+        <button onClick={() => navigate("/admin/jobs/create")}>
+          Add New Job
+        </button>
+      </div>
+
+      <JobsPageView
+        title="Admin Jobs"
+        jobs={jobs}
+        loading={loading}
+        error={error}
+        loadMore={loadMore}
+        onLoadMore={loadMoreJobs}
+        onJobClick={(jobId) => navigate(`/admin/jobs/${jobId}`)}
+        onDelete={handleDelete} // UI component now optional handles deletion
+      />
+    </div>
   );
 }

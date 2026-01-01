@@ -5,10 +5,11 @@ import AdminJobsPage from "../pages/AdminJobsPage";
 import type { Role } from "./App";
 import UserJobDetailsPage from "../pages/UserJobDetailsPage";
 import AdminJobDetailsPage from "../pages/AdminJobDetailsPage";
+import AdminCreateJobPage from "../pages/AdminCreateJobPage";
 
 type Props = {
   role: Role;
-  onSelectRole: (role: "USER" | "ADMIN") => void;
+  onSelectRole: (role: "user" | "admin") => void;
   onClearRole: () => void;
 };
 
@@ -49,6 +50,8 @@ export default function AppRouter({
         <Route path="/user/jobs/:id" element={<UserJobDetailsPage />} />
 
         <Route path="/admin/jobs/:id" element={<AdminJobDetailsPage />} />
+
+        <Route path="/admin/jobs/create" element={<AdminCreateJobPage />} />
       </Routes>
     </BrowserRouter>
   );
