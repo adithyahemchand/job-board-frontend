@@ -36,7 +36,11 @@ export default function JobsPageView({
 
       <JobList jobs={jobs} onJobClick={onJobClick} onDelete={onDelete} />
 
-      {loadMore && !loading && <button onClick={onLoadMore}>Load more</button>}
+      {loadMore && !loading && (
+        <button onClick={onLoadMore} disabled={loading}>
+          Load more
+        </button>
+      )}
     </div>
   );
 }

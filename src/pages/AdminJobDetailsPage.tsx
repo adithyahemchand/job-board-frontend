@@ -33,6 +33,7 @@ export default function AdminJobDetailsPage() {
 
         if (!res.ok) {
           setError("Job not found");
+          setJob(null);
           return;
         }
 

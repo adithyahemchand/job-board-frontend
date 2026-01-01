@@ -56,7 +56,13 @@ export default function AdminJobsPage() {
     try {
       const encodedCursor = encodeURIComponent(JSON.stringify(cursor));
       const res = await fetch(`${BACKEND_URL}/jobs?cursor=${encodedCursor}`);
+
       const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.message || "Invalid cursor");
+        return;
+      }
 
       setJobs((prev) => [...prev, ...data.jobs]);
       setCursor(data.lastCursor);

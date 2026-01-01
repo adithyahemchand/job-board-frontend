@@ -30,6 +30,7 @@ export default function UserJobDetailsPage() {
         const res = await fetch(`${BACKEND_URL}/jobs/${id}`);
         if (!res.ok) {
           setError("Job not found");
+          setJob(null);
           return;
         }
 
