@@ -7,12 +7,6 @@ import UserJobDetailsPage from "../pages/UserJobDetailsPage";
 import AdminJobDetailsPage from "../pages/AdminJobDetailsPage";
 import AdminCreateJobPage from "../pages/AdminCreateJobPage";
 
-type Props = {
-  role: Role;
-  onSelectRole: (role: "user" | "admin") => void;
-  onClearRole: () => void;
-};
-
 export default function AppRouter({
   role,
   onSelectRole,
