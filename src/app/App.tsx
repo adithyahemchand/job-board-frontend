@@ -15,7 +15,7 @@ function App() {
   }, []);
 
   const selectRole = (selectedRole: "user" | "admin") => {
-    document.cookie = `role=${selectedRole}; path=/`;
+    document.cookie = `role=${selectedRole}; path=/; sameSite=None; secure`;
     setRole(selectedRole);
   };
 
