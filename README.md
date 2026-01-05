@@ -36,37 +36,21 @@ git clone <repo-url>
 cd <repo-folder>
 ```
 
-Install and run:
-
-```sh
-npm install
-npm run dev
-```
-
-Build / preview:
-
-```sh
-npm run build
-npm run preview
-```
-
-Type-check:
-
-```sh
-npm run type-check
-```
-
-## Environment
-
 Create or update `.env` with the backend URL:
 
 - `.env` (example)
 
 ```
-VITE_BACKEND_URL=http://localhost:3000
+VITE_BACKEND_URL=<YOUR_BACKEND_URL>
 ```
 
 This variable is consumed via `import.meta.env.VITE_BACKEND_URL` across the app (see usages in pages like [`UserJobsPage`](src/pages/UserJobsPage.tsx) and [`AdminJobsPage`](src/pages/AdminJobsPage.tsx)).
+
+Install:
+
+```sh
+npm install
+```
 
 Start the dev server:
 
