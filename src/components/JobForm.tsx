@@ -12,6 +12,19 @@ export default function JobForm({
   const [description, setDescription] = useState("");
   const [submitAttempted, setSubmitAttempted] = useState(false);
 
+  // Validation constants
+  const TITLE_MAX = 100;
+  const AUTHOR_MAX = 50;
+  const DESCRIPTION_MAX = 2000;
+
+  const isEligibleToSubmit =
+    title.trim().length > 0 &&
+    title.length <= TITLE_MAX &&
+    author.trim().length > 0 &&
+    author.length <= AUTHOR_MAX &&
+    description.trim().length > 0 &&
+    description.length <= DESCRIPTION_MAX;
+
   return (
     <div className="bg-gray-50  flex  justify-center py-10 px-6">
       <div className="w-full max-w-lg bg-white/90 border border-gray-200 rounded-xl shadow-xl p-8 space-y-6 text-center">
@@ -22,6 +35,7 @@ export default function JobForm({
         <input
           placeholder="Job Title"
           value={title}
+          maxLength={TITLE_MAX}
           onChange={(e) => setTitle(e.target.value)}
           className={`w-full border rounded-lg p-2 text-base focus:outline-none focus:ring-2 text-center ${
             submitAttempted && !title
@@ -37,6 +51,7 @@ export default function JobForm({
         <input
           placeholder="Posted by"
           value={author}
+          maxLength={AUTHOR_MAX}
           onChange={(e) => setAuthor(e.target.value)}
           className={`w-full border rounded-lg p-2 text-base focus:outline-none focus:ring-2 text-center ${
             submitAttempted && !author
@@ -52,6 +67,7 @@ export default function JobForm({
         <textarea
           placeholder="Job description"
           value={description}
+          maxLength={DESCRIPTION_MAX}
           onChange={(e) => setDescription(e.target.value)}
           className={`w-full border rounded-lg p-4 h-72 placeholder:text-center resize-none text-base focus:outline-none focus:ring-2 ${
             submitAttempted && !description
@@ -69,13 +85,18 @@ export default function JobForm({
         <button
           onClick={() => {
             setSubmitAttempted(true);
-            if (title && author && description)
-              onSubmit(title, author, description);
+            onSubmit(title, author, description);
           }}
-          disabled={loading}
-          className="w-full bg-blue-500/70 text-white font-semibold py-3 rounded-lg shadow hover:bg-blue-700/70 transition duration-200 disabled:opacity-50 text-lg"
+          disabled={loading || !isEligibleToSubmit}
+          className={`w-full font-semibold py-3 rounded-lg shadow transition duration-200 text-white
+            ${
+              loading || !isEligibleToSubmit
+                ? "bg-blue-200 cursor-not-allowed"
+                : "bg-blue-500/70 hover:bg-blue-700/70"
+            }
+          `}
         >
-          Create
+          Create Job
         </button>
       </div>
     </div>

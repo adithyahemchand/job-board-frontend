@@ -46,11 +46,13 @@ VITE_BACKEND_URL=<YOUR_BACKEND_URL>
 
 This variable is consumed via `import.meta.env.VITE_BACKEND_URL` across the app (see usages in pages like [`UserJobsPage`](src/pages/UserJobsPage.tsx) and [`AdminJobsPage`](src/pages/AdminJobsPage.tsx)).
 
-Install:
+## Install Dependencies:
 
 ```sh
 npm install
 ```
+
+## Start the development server::
 
 Start the dev server:
 
