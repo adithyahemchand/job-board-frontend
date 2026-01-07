@@ -27,6 +27,16 @@ export default function AdminJobDetailsView({
   const [description, setDescription] = useState("");
   const [submitAttempted, setSubmitAttempted] = useState(false);
 
+  // Validation constants
+  const TITLE_MAX = 100;
+  const DESCRIPTION_MAX = 2000;
+
+  const isEligibleToSubmit =
+    title.trim().length > 0 &&
+    title.length <= TITLE_MAX &&
+    description.trim().length > 0 &&
+    description.length <= DESCRIPTION_MAX;
+
   useEffect(() => {
     if (job) {
       setTitle(job.title);
@@ -58,6 +68,7 @@ export default function AdminJobDetailsView({
         {/* Job Title */}
         <input
           value={title}
+          maxLength={TITLE_MAX}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Title"
           className={`w-full border rounded-lg p-3 text-base focus:outline-none focus:ring-2 ${
@@ -75,6 +86,7 @@ export default function AdminJobDetailsView({
         {/* Job Description */}
         <textarea
           value={description}
+          maxLength={DESCRIPTION_MAX}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Description"
           className={`w-full border rounded-lg p-3 h-48 resize-none text-base focus:outline-none focus:ring-2 ${
@@ -96,8 +108,14 @@ export default function AdminJobDetailsView({
               setSubmitAttempted(true);
               if (title && description) onSave(title, description);
             }}
-            disabled={saving}
-            className="bg-blue-500/70 text-white font-semibold py-2 px-6 rounded-lg shadow hover:bg-blue-700/70 transition duration-200 disabled:opacity-50"
+            disabled={saving || !isEligibleToSubmit}
+            className={`bg-blue-500/70 text-white font-semibold py-2 px-6 rounded-lg shadow transition duration-200
+              ${
+                saving || !isEligibleToSubmit
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:bg-blue-700/70"
+              }
+            `}
           >
             Save
           </button>
