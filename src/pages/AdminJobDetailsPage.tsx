@@ -92,7 +92,7 @@ export default function AdminJobDetailsPage() {
     <>
       <PageHeader profile="admin" />
       <div className="bg-gray-50 min-h-screen flex justify-center py-6 px-6">
-        <div className="w-full max-w-3xl pl-4">
+        <div>
           {/* Edit Job Card */}
           <AdminJobDetailsView
             job={job}

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import type { Role } from "../app/App";
 
-function RoleSelectPage({
+export default function RoleSelectPage({
   onSelectRole,
 }: {
   onSelectRole: (role: Role) => void;
@@ -14,21 +14,21 @@ function RoleSelectPage({
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen flex justify-center py-6 px-6">
-      <div className="w-full max-w-3xl pl-4">
-        {/* Header */}
-        <div className="text-center mb-4">
-          <h1 className="text-5xl font-extrabold text-blue-600 tracking-tight">
-            Job Board
-          </h1>
-        </div>
+    <>
+      <div className="text-center bg-white  z-[20] flex-col mx-auto shadow-sm w-full items-center justify-center py-6">
+        <h1 className="text-5xl font-extrabold text-blue-600 tracking-wide">
+          Job Board
+        </h1>
+        <p className="text-sm text-gray-500 mt-2">
+          One platform. Many opportunities.
+        </p>
+      </div>
 
-        {/* Role Selection */}
-        {
-          <div className="flex flex-col items-center space-y-4 mt-4">
-            <p className="text-gray-700 text-lg font-medium">
-              Please select the profile
-            </p>
+      <div className="bg-gray-50 min-h-screen flex justify-center p-4">
+        <div className="w-full ">
+          {/* Role Selection */}
+          <div className="flex flex-col items-center space-y-4 p-4">
+            <p className="text-gray-600 text-md ">Please select the profile</p>
             <div className="flex justify-center space-x-4">
               <button
                 onClick={() => handleSelect("user")}
@@ -44,10 +44,8 @@ function RoleSelectPage({
               </button>
             </div>
           </div>
-        }
+        </div>
       </div>
-    </div>
+    </>
   );
 }
-
-export default RoleSelectPage;

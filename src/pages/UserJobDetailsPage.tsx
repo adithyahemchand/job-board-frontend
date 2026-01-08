@@ -51,9 +51,9 @@ export default function UserJobDetailsPage() {
     <>
       <PageHeader profile="user" />
       <div className="bg-gray-50 min-h-screen flex justify-center py-6 px-6">
-        <div className="w-full max-w-3xl pl-4">
+        <div>
           {/* Job Details */}
-          <div className="mt-20 ml-[120px]">
+          <div className="p-10">
             <JobDetailsView job={job} loading={loading} error={error} />
           </div>
         </div>

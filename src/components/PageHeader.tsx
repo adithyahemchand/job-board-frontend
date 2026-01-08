@@ -4,7 +4,7 @@ type PageHeaderProps = {
 
 export default function PageHeader({ profile }: PageHeaderProps) {
   return (
-    <header className="text-center bg-white sticky top-0 z-[20] flex-col mx-auto shadow-sm w-full items-center justify-center py-6">
+    <header className="text-center bg-white  z-[20] flex-col mx-auto shadow-sm w-full items-center justify-center py-6">
       <h1 className="text-5xl font-extrabold text-blue-600 tracking-wide">
         Job Board
       </h1>
