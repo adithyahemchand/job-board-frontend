@@ -25,7 +25,7 @@ export default function JobDetailsView({
 
   if (!job)
     return (
-      <p className="text-gray-500 text-base text-center mt-12">No job data</p>
+      <p className="text-gray-500 text-base text-center mt-12">Job not found</p>
     );
 
   return (

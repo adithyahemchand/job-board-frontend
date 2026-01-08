@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import JobDetailsView from "../components/JobDetailsView";
+import PageHeader from "../components/PageHeader";
 
 type Job = {
   jobId: string;
@@ -47,21 +48,16 @@ export default function UserJobDetailsPage() {
   }, [id]);
 
   return (
-    <div className="bg-gray-50 min-h-screen flex justify-center py-6 px-6">
-      <div className="w-full max-w-3xl pl-4">
-        {/* Header — identical positioning */}
-        <div className="text-center mb-1 mr-[15px]">
-          <h1 className="text-5xl font-extrabold text-blue-600 tracking-tight">
-            Job Board
-          </h1>
-          <p className="text-sm text-gray-500 mt-2">Profile: User</p>
-        </div>
-
-        {/* Job Details */}
-        <div className="mt-20 ml-[120px]">
-          <JobDetailsView job={job} loading={loading} error={error} />
+    <>
+      <PageHeader profile="user" />
+      <div className="bg-gray-50 min-h-screen flex justify-center py-6 px-6">
+        <div className="w-full max-w-3xl pl-4">
+          {/* Job Details */}
+          <div className="mt-20 ml-[120px]">
+            <JobDetailsView job={job} loading={loading} error={error} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

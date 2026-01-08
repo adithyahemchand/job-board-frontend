@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import JobForm from "../components/JobForm";
+import PageHeader from "../components/PageHeader";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -41,25 +42,20 @@ export default function AdminCreateJobPage() {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen flex justify-center py-6 px-6">
-      <div className="w-full max-w-3xl pl-4">
-        {/* Header */}
-        <div className="text-center mb-1">
-          <h1 className="text-5xl font-extrabold text-blue-600 tracking-tight">
-            Job Board
-          </h1>
-          <p className="text-sm text-gray-500 mt-2">Profile: Admin</p>
-        </div>
+    <>
+      <PageHeader profile="admin" />
+      <div className="bg-gray-50 min-h-screen flex justify-center py-6 px-6">
+        <div className="w-full max-w-3xl pl-4">
+          {error && <p className="text-red-600 mb-2 text-center">{error}</p>}
 
-        {error && <p className="text-red-600 mb-2 text-center">{error}</p>}
-
-        {/* JobForm */}
-        <div className="flex justify-center -mt-1">
-          <div className="w-full max-w-3xl">
-            <JobForm loading={loading} onSubmit={handleCreate} />
+          {/* JobForm */}
+          <div className="flex justify-center -mt-1">
+            <div className="w-full max-w-3xl">
+              <JobForm loading={loading} onSubmit={handleCreate} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

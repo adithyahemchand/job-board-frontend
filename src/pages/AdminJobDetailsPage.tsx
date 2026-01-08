@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AdminJobDetailsView from "../components/AdminJobDetailsView";
+import PageHeader from "../components/PageHeader";
 
 type Job = {
   jobId: string;
@@ -88,26 +89,21 @@ export default function AdminJobDetailsPage() {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen flex justify-center py-6 px-6">
-      <div className="w-full max-w-3xl pl-4">
-        {/* Header — IDENTICAL positioning */}
-        <div className="text-center mb-4">
-          <h1 className="text-5xl font-extrabold text-blue-600 tracking-tight">
-            Job Board
-          </h1>
-          <p className="text-sm text-gray-500 mt-2">Profile: Admin</p>
+    <>
+      <PageHeader profile="admin" />
+      <div className="bg-gray-50 min-h-screen flex justify-center py-6 px-6">
+        <div className="w-full max-w-3xl pl-4">
+          {/* Edit Job Card */}
+          <AdminJobDetailsView
+            job={job}
+            loading={loading}
+            error={error}
+            saving={saving}
+            onSave={handleSave}
+            onDelete={handleDelete}
+          />
         </div>
-
-        {/* Edit Job Card */}
-        <AdminJobDetailsView
-          job={job}
-          loading={loading}
-          error={error}
-          saving={saving}
-          onSave={handleSave}
-          onDelete={handleDelete}
-        />
       </div>
-    </div>
+    </>
   );
 }

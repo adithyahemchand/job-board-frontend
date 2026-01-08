@@ -33,17 +33,23 @@ export default function JobsPageView({
           <h2 className="text-2xl font-bold text-gray-800 mb-4">{title}</h2>
         )}
 
-        {loading && <p className="text-gray-500">Loading...</p>}
-        {error && <p className="text-red-500">{error}</p>}
-        {!loading && jobs.length === 0 && (
+        {loading ? (
+          <div className="flex items-center justify-center min-h-[200px]">
+            <p className="text-gray-500 text-center">Loading...</p>
+          </div>
+        ) : error ? (
+          <div className="flex items-center justify-center min-h-[200px]">
+            <p className="text-red-500 text-center">{error}</p>
+          </div>
+        ) : jobs.length === 0 ? (
           <div className="flex items-center justify-center min-h-[200px]">
             <p className="text-gray-400 text-base text-center">No jobs found</p>
           </div>
+        ) : (
+          <JobList jobs={jobs} onJobClick={onJobClick} onDelete={onDelete} />
         )}
 
-        <JobList jobs={jobs} onJobClick={onJobClick} onDelete={onDelete} />
-
-        {loadMore && !loading && (
+        {loadMore && !loading && !error && (
           <div className="flex justify-center mt-4">
             <button
               onClick={onLoadMore}
