@@ -10,24 +10,16 @@ import AdminCreateJobPage from "../pages/AdminCreateJobPage";
 export default function AppRouter({
   role,
   onSelectRole,
-  onClearRole,
 }: {
   role: Role;
-  onSelectRole: (role: "user" | "admin") => void;
-  onClearRole: () => void;
+  onSelectRole: (role: Role) => void;
 }) {
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path="/"
-          element={
-            <RoleSelectPage
-              role={role}
-              onSelectRole={onSelectRole}
-              onClearRole={onClearRole}
-            />
-          }
+          element={<RoleSelectPage onSelectRole={onSelectRole} />}
         />
         <Route path="*" element={<Navigate to="/" />} />
         // User Routes

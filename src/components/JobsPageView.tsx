@@ -27,7 +27,7 @@ export default function JobsPageView({
   onDelete?: (jobId: string) => void;
 }) {
   return (
-    <div className="bg-gray-50 min-h-screen flex justify-center py-8 px-4">
+    <div className="bg-gray-50 min-h-screen flex justify-center py-3 px-4">
       <div className="w-full max-w-3xl">
         {title && (
           <h2 className="text-2xl font-bold text-gray-800 mb-4">{title}</h2>

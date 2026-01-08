@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import JobsPageView from "../components/JobsPageView";
 import { useNavigate } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
+import LogoutButton from "../components/LogoutButton";
 
 type Job = {
   jobId: string;
@@ -79,6 +80,13 @@ export default function UserJobsPage() {
   return (
     <>
       <PageHeader profile="user" />
+
+      {/* Logout */}
+      <div className="bg-gray-50 flex justify-end top-10  pr-3 pt-3 ]">
+        <LogoutButton />
+      </div>
+
+      {/* Jobs list*/}
       <div className="bg-gray-50 min-h-screen flex justify-center py-6 px-6">
         <div className="w-full max-w-3xl pl-4">
           <JobsPageView

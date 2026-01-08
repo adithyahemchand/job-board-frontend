@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import JobsPageView from "../components/JobsPageView";
 import { useNavigate } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
+import LogoutButton from "../components/LogoutButton";
 
 type Job = {
   jobId: string;
@@ -98,17 +99,24 @@ export default function AdminJobsPage() {
   return (
     <>
       <PageHeader profile="admin" />
-      <div className="bg-gray-50 min-h-screen flex justify-center py-6 px-6">
-        <div className="w-full max-w-3xl pl-4">
-          {/* Action */}
-          <div className="flex justify-end mb-4 pr-6">
+
+      {/* Logout */}
+      <div className="bg-gray-50 flex justify-end top-10  pr-3 pt-3 ]">
+        <LogoutButton />
+      </div>
+
+      <div className="bg-gray-50 min-h-screen flex justify-center px-6">
+        <div className="w-full max-w-3xl ">
+          {/* Add new job*/}
+          <div className=" bg-gray-50 flex justify-left shadow-sm pt-2  pl-4">
             <button
               onClick={() => navigate("/admin/jobs/create")}
               className="px-3 py-1.5 text-sm bg-blue-500/70 text-white rounded-md hover:bg-blue-700/70 transition duration-150"
             >
-              Add New Job
+              Add new job
             </button>
           </div>
+          {/* Jobs list*/}
           <JobsPageView
             title=""
             jobs={jobs}
